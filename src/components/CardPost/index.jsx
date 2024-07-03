@@ -5,10 +5,10 @@ import styles from "./card.module.css";
 import Link from "next/link";
 import { incrementThumbsUp } from "@/actions";
 import ThumbsUpButton from "./ThumbsUpButton";
+import { ModalComment } from "../ModalComment";
 
 const CardPost = ({ post, highlight }) => {
-
-  const submitThumbsUp = incrementThumbsUp.bind(null, post)
+  const submitThumbsUp = incrementThumbsUp.bind(null, post);
 
   return (
     <article className={styles.card} style={{ width: highlight ? 993 : 486 }}>
@@ -28,8 +28,12 @@ const CardPost = ({ post, highlight }) => {
         <div>
           <form action={submitThumbsUp}>
             <ThumbsUpButton />
+            <p>{post.likes}</p>
           </form>
-          <p>{post.likes}</p>
+          <div>
+            <ModalComment />
+            <p>{post.comments.length}</p>
+          </div>
         </div>
         <Avatar imageSrc={post.author.avatar} name={post.author.username} />
       </footer>
