@@ -3,6 +3,8 @@ import React from "react";
 import Avatar from "../Avatar";
 import styles from "./card.module.css";
 import Link from "next/link";
+import { IconButon } from "../IconButton";
+import { ThumbsUp } from "../Icons/ThumbsUp";
 
 const CardPost = ({ post, highlight }) => {
   return (
@@ -15,9 +17,19 @@ const CardPost = ({ post, highlight }) => {
       <section className={styles.body}>
         <h2>{post.title}</h2>
         <p>{post.body}</p>
-        <Link href={`/posts/${post.slug}`} className={styles.link}>Ver detalhes</Link>
+        <Link href={`/posts/${post.slug}`} className={styles.link}>
+          Ver detalhes
+        </Link>
       </section>
       <footer className={styles.footer}>
+        <div className="">
+          <form action="">
+            <IconButon>
+              <ThumbsUp />
+            </IconButon>
+          </form>
+          <p>{post.likes}</p>
+        </div>
         <Avatar imageSrc={post.author.avatar} name={post.author.username} />
       </footer>
     </article>
