@@ -3,9 +3,8 @@ import React from "react";
 import Avatar from "../Avatar";
 import styles from "./card.module.css";
 import Link from "next/link";
-import { IconButon } from "../IconButton";
-import { ThumbsUp } from "../Icons/ThumbsUp";
 import { incrementThumbsUp } from "@/actions";
+import ThumbsUpButton from "./ThumbsUpButton";
 
 const CardPost = ({ post, highlight }) => {
 
@@ -28,9 +27,7 @@ const CardPost = ({ post, highlight }) => {
       <footer className={styles.footer}>
         <div>
           <form action={submitThumbsUp}>
-            <IconButon>
-              <ThumbsUp />
-            </IconButon>
+            <ThumbsUpButton />
           </form>
           <p>{post.likes}</p>
         </div>
