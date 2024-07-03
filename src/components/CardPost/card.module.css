@@ -53,6 +53,11 @@
     text-align: center;
 }
 
+.btns {
+    display: flex;
+    gap: 1rem;
+}
+
 .link {
     color: #BFFFC3;
     font-weight: 400;

@@ -27,7 +27,7 @@ const CardPost = ({ post, highlight }) => {
         </Link>
       </section>
       <footer className={styles.footer}>
-        <div>
+        <div className={styles.btns}>
           <form action={submitThumbsUp}>
             <ThumbsUpButton />
             <p>{post.likes}</p>
