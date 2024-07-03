@@ -3,12 +3,14 @@ import React from "react";
 import Avatar from "../Avatar";
 import styles from "./card.module.css";
 import Link from "next/link";
-import { incrementThumbsUp } from "@/actions";
+import { incrementThumbsUp, postComment } from "@/actions";
 import ThumbsUpButton from "./ThumbsUpButton";
 import { ModalComment } from "../ModalComment";
 
 const CardPost = ({ post, highlight }) => {
   const submitThumbsUp = incrementThumbsUp.bind(null, post);
+
+  const handlePostComment = postComment.bind(null, post)
 
   return (
     <article className={styles.card} style={{ width: highlight ? 993 : 486 }}>
@@ -31,7 +33,7 @@ const CardPost = ({ post, highlight }) => {
             <p>{post.likes}</p>
           </form>
           <div>
-            <ModalComment />
+            <ModalComment action={handlePostComment} />
             <p>{post.comments.length}</p>
           </div>
         </div>
