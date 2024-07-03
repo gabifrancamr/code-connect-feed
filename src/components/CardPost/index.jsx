@@ -5,8 +5,12 @@ import styles from "./card.module.css";
 import Link from "next/link";
 import { IconButon } from "../IconButton";
 import { ThumbsUp } from "../Icons/ThumbsUp";
+import { incrementThumbsUp } from "@/actions";
 
 const CardPost = ({ post, highlight }) => {
+
+  const submitThumbsUp = incrementThumbsUp.bind(null, post)
+
   return (
     <article className={styles.card} style={{ width: highlight ? 993 : 486 }}>
       <header className={styles.header}>
@@ -22,8 +26,8 @@ const CardPost = ({ post, highlight }) => {
         </Link>
       </section>
       <footer className={styles.footer}>
-        <div className="">
-          <form action="">
+        <div>
+          <form action={submitThumbsUp}>
             <IconButon>
               <ThumbsUp />
             </IconButon>
